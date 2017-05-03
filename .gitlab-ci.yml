@@ -1,0 +1,18 @@
+image: registry.gitlab.com/mazechazer/elm-ckeditor/image
+
+pages:
+  stage: deploy
+  script:
+  - cd demo/
+  - yarn
+  - ./make.sh
+  - cd ..
+  - mv demo public
+  artifacts:
+    paths:
+    - public
+  cache:
+    paths:
+    - demo/elm-stuff/build-artifacts
+  only:
+  - master
