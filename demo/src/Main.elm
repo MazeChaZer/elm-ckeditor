@@ -51,7 +51,12 @@ update msg model =
             ( model, Random.generate NewColor Random.Color.rgb )
 
         NewColor color ->
-            ( { model | config = Encode.object [ ( "uiColor", Encode.string (colorToHex color) ) ] }, Cmd.none )
+            let
+                config =
+                    Encode.object
+                        [ ( "uiColor", Encode.string (colorToHex color) ) ]
+            in
+                ( { model | config = config }, Cmd.none )
 
 
 view : Model -> Html.Html Msg
