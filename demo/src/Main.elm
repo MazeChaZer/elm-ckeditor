@@ -1,17 +1,22 @@
 module Main exposing (main)
 
+import Color exposing (Color)
 import Html exposing (div, pre, text, button)
 import Html.Events exposing (onClick)
 import Json.Encode as Encode exposing (Value)
+import Random
+import Random.Color
+import Color.Convert exposing (colorToHex)
 import CKEditor exposing (ckeditor, config, content, onCKEditorChange, defaultConfig)
 
 
 main : Platform.Program Never Model Msg
 main =
-    Html.beginnerProgram
-        { model = init
+    Html.program
+        { init = init
         , update = update
         , view = view
+        , subscriptions = \_ -> Sub.none
         }
 
 
@@ -21,26 +26,32 @@ type alias Model =
     }
 
 
-init : Model
+init : ( Model, Cmd Msg )
 init =
-    { config = defaultConfig
-    , content = ""
-    }
+    ( { config = defaultConfig
+      , content = ""
+      }
+    , Cmd.none
+    )
 
 
 type Msg
     = CKEditorChanged String
     | ChangeConfig
+    | NewColor Color
 
 
-update : Msg -> Model -> Model
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         CKEditorChanged content ->
-            { model | content = content }
+            ( { model | content = content }, Cmd.none )
 
         ChangeConfig ->
-            { model | config = Encode.object [ ( "uiColor", Encode.string "#AADC6E" ) ] }
+            ( model, Random.generate NewColor Random.Color.rgb )
+
+        NewColor color ->
+            ( { model | config = Encode.object [ ( "uiColor", Encode.string (colorToHex color) ) ] }, Cmd.none )
 
 
 view : Model -> Html.Html Msg
