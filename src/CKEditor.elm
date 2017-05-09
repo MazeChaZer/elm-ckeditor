@@ -1,4 +1,11 @@
-module CKEditor exposing (ckeditor, config, content, onCKEditorChange, defaultConfig)
+module CKEditor
+    exposing
+        ( ckeditor
+        , config
+        , content
+        , onCKEditorChange
+        , defaultConfig
+        )
 
 import Html exposing (node, Html, Attribute)
 import Html.Attributes exposing (property)
