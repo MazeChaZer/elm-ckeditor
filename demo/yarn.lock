@@ -7,8 +7,8 @@ ckeditor@^4.6.2:
   resolved "https://registry.yarnpkg.com/ckeditor/-/ckeditor-4.6.2.tgz#b1552b7a2f9537e165d7afd2d29d3d4959ff6bad"
 
 webcomponent-ckeditor@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/webcomponent-ckeditor/-/webcomponent-ckeditor-1.0.0.tgz#9221d2fb5a42033829eb235ccc6ca5153af06095"
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/webcomponent-ckeditor/-/webcomponent-ckeditor-1.0.1.tgz#5e1158f2090eb94cbb576965ad0716424dffe3ba"
 
 webcomponentsjs@^1.0.2:
   version "1.0.2"
