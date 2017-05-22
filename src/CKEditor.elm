@@ -54,7 +54,7 @@ the CKEditor instance is reloaded to apply the changes.
 
     config <|
         Json.Encode.object
-            [ ( "uiColor", JsonEncode.string "#AADC6E" ) ]
+            [ ( "uiColor", Json.Encode.string "#AADC6E" ) ]
 
 Available options are documented at
 <http://docs.ckeditor.com/#!/api/CKEDITOR.config>
