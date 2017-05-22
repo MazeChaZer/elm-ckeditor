@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "summary": "Use the CKEditor via web components in your Elm App",
-    "repository": "https://github.com/user/project.git",
+    "repository": "https://github.com/MazeChaZer/elm-ckeditor.git",
     "license": "MIT",
     "source-directories": [
         "src"
