@@ -14,6 +14,7 @@ view model =
     ckeditor
         [ config model.config
         , content model.content
+        , onCKEditorChange CKEditorChanged
         ]
         []
 ```
